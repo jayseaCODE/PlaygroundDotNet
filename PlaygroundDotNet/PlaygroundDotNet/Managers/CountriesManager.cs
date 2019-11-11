@@ -51,22 +51,38 @@ namespace PlaygroundDotNet.Managers
         public async Task GetAll()
         {
             HttpResponseMessage response = await _httpClient.GetAsync("https://restcountries.eu/rest/v2/all");
-            if (response.StatusCode == HttpStatusCode.OK)
+            if (HandleResponse(response.StatusCode))
             {
                 var content = await response.Content.ReadAsStringAsync();
                 _countries = JsonConvert.DeserializeObject<Country[]>(content);
             }
-            else if (response.StatusCode == HttpStatusCode.NotFound)
+        }
+
+        /// <summary>
+        /// Instead of <see cref="GetAll"/> handling HttpStatusCode/s we delegate that responsiblity to <see cref="HandleResponse(HttpStatusCode)"/>
+        /// </summary>
+        /// <param name="statusCode"></param>
+        /// <returns></returns>
+        private bool HandleResponse(HttpStatusCode statusCode)
+        {
+            if (statusCode == HttpStatusCode.OK)
+            {
+                return true;
+            }
+            else if (statusCode == HttpStatusCode.NotFound)
             {
                 Console.WriteLine("Countries API is momentarily unavailable.");
+                return false;
             }
-            else if (response.StatusCode == HttpStatusCode.InternalServerError)
+            else if (statusCode == HttpStatusCode.InternalServerError)
             {
                 Console.WriteLine("Countries API encountered an error.");
+                return false;
             }
             else
             {
                 Console.WriteLine("An error has occured while fetching all countries.");
+                return false;
             }
         }
     }
