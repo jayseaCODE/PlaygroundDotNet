@@ -6,7 +6,10 @@ namespace PlaygroundDotNet
     {
         static void Main(string[] args)
         {
-            SingleResponsibilityExample.Run(args);
+            //SingleResponsibilityExample.Run(args);
+
+            PrimaryPlayer primaryPlayer = PrimaryPlayer.Instance;
+            Console.ReadKey();
         }
     }
 }
