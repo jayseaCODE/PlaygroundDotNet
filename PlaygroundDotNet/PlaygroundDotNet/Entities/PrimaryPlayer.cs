@@ -17,9 +17,9 @@ namespace PlaygroundDotNet
 
         public string Name { get; set; }
         public string Level { get; set; }
-
         public int Armour { get; set; }
         public int Health { get; set; }
+        public IWeapon Weapon { get; set; }
         /// <summary>
         /// Default Constructor called in Static Constructor
         /// </summary>
