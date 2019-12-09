@@ -8,8 +8,8 @@ namespace PlaygroundDotNet
     {
         int Health { get; set; }
         int Level { get; }
-        int OvertimeDamage { get; set; }
         int Armour { get; set; }
+        int OvertimeDamageTaken { get; set; }
         bool Paralyzed { get; set; }
         int ParalyzedRoundsDuration { get; set; }
         void Attack(PrimaryPlayer primaryPlayer);

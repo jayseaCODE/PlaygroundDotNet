@@ -15,9 +15,8 @@ namespace PlaygroundDotNet
         // Properties
         public int Health { get => _health; set => _health = value; }
         public int Level => _level;
-
-        public int OvertimeDamage { get; set; }
         public int Armour { get; set; }
+        public int OvertimeDamageTaken { get; set; }
         public bool Paralyzed { get; set; }
         public int ParalyzedRoundsDuration { get; set; }
 
