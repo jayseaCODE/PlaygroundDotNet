@@ -1,4 +1,5 @@
 ﻿using System;
+using PlaygroundDotNet.Managers;
 
 namespace PlaygroundDotNet
 {
@@ -8,7 +9,8 @@ namespace PlaygroundDotNet
         {
             //SingleResponsibilityExample.Run(args);
 
-            PrimaryPlayer primaryPlayer = PrimaryPlayer.Instance;
+            GameBoard gameBoard = new GameBoard();
+            gameBoard.PlayArea(1);
             Console.ReadKey();
         }
     }
