@@ -18,6 +18,8 @@ namespace PlaygroundDotNet
         public string Name { get; set; }
         public string Level { get; set; }
 
+        public int Armour { get; set; }
+        public int Health { get; set; }
         /// <summary>
         /// Default Constructor called in Static Constructor
         /// </summary>
@@ -33,6 +35,8 @@ namespace PlaygroundDotNet
             {
                 Name = "Player 1",
                 Level = "1",
+                Armour = 25,
+                Health = 100,
             };
             //TODO: Use Dependency Injection to instantiate instance
         }
