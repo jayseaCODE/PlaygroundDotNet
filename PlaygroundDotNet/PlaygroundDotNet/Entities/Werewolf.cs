@@ -10,20 +10,26 @@ namespace PlaygroundDotNet
     public class Werewolf : IEnemy
     {
         // Backing fields
-        private int _health;
         private readonly int _level;
+        private readonly int _damage;
+        private readonly int _armourDamage;
         // Properties
-        public int Health { get => _health; set => _health = value; }
+        public string Name => "Werewolf";
         public int Level => _level;
-
         public int Armour { get; set; }
+        public int Health { get; set; }
+        public int Damage => _damage;
+        public int ArmourDamage => _armourDamage;
         public int OvertimeDamageTaken { get; set; }
         public bool Paralyzed { get; set; }
         public int ParalyzedRoundsDuration { get; set; }
-        public Werewolf(int health, int level)
+        public Werewolf(int health, int level, int armour)
         {
-            _health = health;
             _level = level;
+            Armour = armour;
+            Health = health;
+            _damage = level;
+            _armourDamage = (level / 2 > 1) ? level / 2 : 1;
         }
         public void Attack(PrimaryPlayer primaryPlayer)
         {
