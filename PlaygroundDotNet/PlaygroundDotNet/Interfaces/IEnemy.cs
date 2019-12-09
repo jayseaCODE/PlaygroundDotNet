@@ -6,9 +6,10 @@ namespace PlaygroundDotNet
 {
     public interface IEnemy
     {
-        int Health { get; set; }
+        string Name { get; }
         int Level { get; }
         int Armour { get; set; }
+        int Health { get; set; }
         int OvertimeDamageTaken { get; set; }
         bool Paralyzed { get; set; }
         int ParalyzedRoundsDuration { get; set; }
