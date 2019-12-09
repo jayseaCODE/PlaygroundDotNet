@@ -7,7 +7,7 @@ namespace PlaygroundDotNet
     /// <summary>
     /// A Singleton, sealed from inheritance by other classes
     /// </summary>
-    public sealed class PrimaryPlayer
+    public sealed class PrimaryPlayer : IDamageable
     {
         private static readonly PrimaryPlayer _instance;
         public static PrimaryPlayer Instance
@@ -39,6 +39,26 @@ namespace PlaygroundDotNet
                 Health = 100,
             };
             //TODO: Use Dependency Injection to instantiate instance
+        }
+
+        public void TakeDamage(int dealtDamage, int dealtArmourDamage)
+        {
+            if (Armour > 0)
+            {
+                var leftoverArmour = Armour - dealtArmourDamage;
+                if (leftoverArmour < 0)
+                {
+                    Armour = 0;
+                }
+                else
+                {
+                    Armour = leftoverArmour;
+                }
+            }
+            else
+            {
+                Health -= dealtDamage;
+            }
         }
     }
 }
