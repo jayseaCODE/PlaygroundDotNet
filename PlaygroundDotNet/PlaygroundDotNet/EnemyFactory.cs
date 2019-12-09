@@ -10,11 +10,11 @@ namespace PlaygroundDotNet
         {
             if (areaLevel < 5)
             {
-                return new Werewolf(100, 10);
+                return new Werewolf(100, 10, 8);
             }
             else
             {
-                return new Werewolf(100, 20);
+                return new Werewolf(100, 20, 15);
             }
         }
 
@@ -22,11 +22,11 @@ namespace PlaygroundDotNet
         {
             if (areaLevel < 2)
             {
-                return new Zombie(100, 2);
+                return new Zombie(100, 2, 2);
             }
             else
             {
-                return new Zombie(100, 10);
+                return new Zombie(100, 10, 5);
             }
         }
     }
