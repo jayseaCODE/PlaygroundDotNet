@@ -34,11 +34,32 @@ namespace PlaygroundDotNet
         public void Attack(PrimaryPlayer primaryPlayer)
         {
             Console.WriteLine("Werewolf attacks " + primaryPlayer.Name);
+            primaryPlayer.TakeDamage(_damage, _armourDamage);
         }
 
         public void Defend(PrimaryPlayer primaryPlayer)
         {
             Console.WriteLine("Werewolf defends from " + primaryPlayer.Name);
+        }
+
+        public void TakeDamage(int dealtDamage, int dealtArmourDamage)
+        {
+            if (Armour > 0)
+            {
+                var leftoverArmour = Armour - dealtArmourDamage;
+                if (leftoverArmour < 0)
+                {
+                    Armour = 0;
+                }
+                else
+                {
+                    Armour = leftoverArmour;
+                }
+            }
+            else
+            {
+                Health -= dealtDamage;
+            }
         }
     }
 }

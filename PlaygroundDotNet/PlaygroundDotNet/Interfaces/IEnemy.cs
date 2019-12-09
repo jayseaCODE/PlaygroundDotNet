@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PlaygroundDotNet
 {
-    public interface IEnemy
+    public interface IEnemy : IDamageable
     {
         string Name { get; }
         int Level { get; }
