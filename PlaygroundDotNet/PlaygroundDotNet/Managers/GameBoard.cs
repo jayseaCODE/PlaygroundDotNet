@@ -40,6 +40,10 @@ namespace PlaygroundDotNet.Managers
                     Console.WriteLine($"Player: {_player.Health} health, {_player.Armour} armour.");
                     //TODO: Add check if player is dead
                 }
+                if (enemy.GetType() == typeof(Zombie))
+                {
+                    _enemyFactory.ResetZombie(enemy as Zombie);
+                }
             }
         }
     }
