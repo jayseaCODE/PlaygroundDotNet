@@ -68,16 +68,15 @@ namespace PlaygroundDotNet
                 return new Werewolf(100, 20, 15);
             }
         }
-
-        public Zombie SpawnZombie(int areaLevel)
+        public Zombie SpawnZombie()
         {
-            if (areaLevel < 2)
+            if (_zombiesPool.Count > 0)
             {
-                return new Zombie(100, 2, 2);
+                return _zombiesPool.Pop();
             }
             else
             {
-                return new Zombie(100, 10, 5);
+                throw new Exception("Zombies pool depleted.");
             }
         }
     }
