@@ -6,6 +6,12 @@ namespace PlaygroundDotNet
 {
     public class EnemyFactory
     {
+        private int _areaLevel;
+        public int AreaLevel { get => _areaLevel; }
+        public EnemyFactory(int areaLevel)
+        {
+            _areaLevel = areaLevel;
+        }
         public Werewolf SpawnWerewolf(int areaLevel)
         {
             if (areaLevel < 5)

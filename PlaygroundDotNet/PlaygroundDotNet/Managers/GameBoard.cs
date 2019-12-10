@@ -13,7 +13,7 @@ namespace PlaygroundDotNet.Managers
         {
             _player = PrimaryPlayer.Instance;
             _player.Weapon = new Sword(12, 5);
-            _enemyFactory = new EnemyFactory();
+            _enemyFactory = new EnemyFactory(areaLevel: 2);
         }
 
         public void PlayArea(int level)
