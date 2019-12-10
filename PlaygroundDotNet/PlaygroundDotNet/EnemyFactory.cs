@@ -79,5 +79,12 @@ namespace PlaygroundDotNet
                 throw new Exception("Zombies pool depleted.");
             }
         }
+        public void ResetZombie(Zombie zombie)
+        {
+            (int count, int health, int level, int armour) = GetZombieStatsForGivenAreaLevel(_areaLevel);
+            zombie.Health = health;
+            zombie.Armour = armour;
+            _zombiesPool.Push(zombie);
+        }
     }
 }
