@@ -13,13 +13,13 @@ namespace PlaygroundDotNet.Managers
         {
             _player = PrimaryPlayer.Instance;
             _player.Weapon = new Sword(12, 5);
-            _enemyFactory = new EnemyFactory(areaLevel: 2);
         }
 
         public void PlayArea(int level)
         {
+            _enemyFactory = new EnemyFactory(areaLevel: level);
             List<IEnemy> enemies = new List<IEnemy>();
-            enemies.Add(_enemyFactory.SpawnZombie(level));
+            enemies.Add(_enemyFactory.SpawnZombie());
             enemies.Add(_enemyFactory.SpawnWerewolf(level));
 
             foreach(var enemy in enemies)
