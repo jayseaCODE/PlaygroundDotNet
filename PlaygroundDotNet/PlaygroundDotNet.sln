@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PlaygroundDotNet", "Playgro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{EBBDC28D-EBD1-4522-9692-25AD05317DAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "WebApi\WebApi.csproj", "{BFD8F92C-4031-4879-8EE0-1D7FE1AAD88E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{EBBDC28D-EBD1-4522-9692-25AD05317DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBBDC28D-EBD1-4522-9692-25AD05317DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBBDC28D-EBD1-4522-9692-25AD05317DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFD8F92C-4031-4879-8EE0-1D7FE1AAD88E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD8F92C-4031-4879-8EE0-1D7FE1AAD88E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD8F92C-4031-4879-8EE0-1D7FE1AAD88E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD8F92C-4031-4879-8EE0-1D7FE1AAD88E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
