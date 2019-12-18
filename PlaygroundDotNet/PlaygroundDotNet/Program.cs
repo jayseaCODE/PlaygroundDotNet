@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
 using PlaygroundDotNet.Managers;
 
 namespace PlaygroundDotNet
@@ -36,6 +41,7 @@ namespace PlaygroundDotNet
                     if (response.StatusCode == System.Net.HttpStatusCode.OK) return;
                     else
                     {
+                        retryCurrentDelay = await CarryOutExponentialBackoffRetries(retry, retryCurrentDelay, retryMaxDelay);
                     }
                 }
                 catch (Exception ex)
@@ -45,9 +51,18 @@ namespace PlaygroundDotNet
             }
         }
 
-            GameBoard gameBoard = new GameBoard();
-            gameBoard.PlayArea(1);
-            Console.ReadKey();
+        static async Task<int> CarryOutExponentialBackoffRetries(bool retry, int retryCurrentDelay, int retryMaxDelay)
+        {
+            // Retry getting a response using exponential backoff
+            if (retryCurrentDelay > retryMaxDelay)
+            {
+                throw new Exception("Too many retry attempts.");
+            }
+            await Task.Delay(retryCurrentDelay).ConfigureAwait(false);
+            retryCurrentDelay *= 2;
+
+            return retryCurrentDelay;
+        }
         }
     }
 }
