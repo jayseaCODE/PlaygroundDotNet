@@ -24,6 +24,8 @@ namespace PlaygroundDotNet
             {
                 Console.WriteLine("Failed to initialize game.");
             }
+        }
+
         static async Task TestWebApiConnection()
         {
             HttpClient httpClient = new HttpClient();
@@ -63,6 +65,7 @@ namespace PlaygroundDotNet
 
             return retryCurrentDelay;
         }
-        }
+
+        
     }
 }
