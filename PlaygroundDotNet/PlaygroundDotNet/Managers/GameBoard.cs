@@ -17,6 +17,9 @@ namespace PlaygroundDotNet.Managers
 
         public void PlayArea(int level)
         {
+            Console.WriteLine($"Ready to play level {level}?");
+            Console.ReadKey();
+
             _enemyFactory = new EnemyFactory(areaLevel: level);
             List<IEnemy> enemies = new List<IEnemy>();
             enemies.Add(_enemyFactory.SpawnZombie());
