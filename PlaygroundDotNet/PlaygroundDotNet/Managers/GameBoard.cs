@@ -20,8 +20,9 @@ namespace PlaygroundDotNet.Managers
             _player.Weapon = new Sword(12, 5);
         }
 
-        public void PlayArea(int level)
+        public async Task PlayArea(int level)
         {
+            _player.Cards = (await FetchCards()).ToList();
             Console.WriteLine($"Ready to play level {level}?");
             Console.ReadKey();
 
