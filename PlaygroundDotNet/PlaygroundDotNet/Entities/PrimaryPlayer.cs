@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -20,6 +21,8 @@ namespace PlaygroundDotNet
         public int Armour { get; set; }
         public int Health { get; set; }
         public IWeapon Weapon { get; set; }
+        public List<Card> Cards { get; set; }
+
         /// <summary>
         /// Default Constructor called in Static Constructor
         /// </summary>
