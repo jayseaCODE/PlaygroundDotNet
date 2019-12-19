@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+using Common;
+using Newtonsoft.Json;
 
 namespace PlaygroundDotNet.Managers
 {
@@ -47,6 +52,15 @@ namespace PlaygroundDotNet.Managers
                 {
                     _enemyFactory.ResetZombie(enemy as Zombie);
                 }
+            }
+        }
+
+        private async Task<IEnumerable<Card>> FetchCards()
+        {
+            using (var httpClient = new HttpClient())
+            {
+                var cardsJson = await httpClient.GetStringAsync("https://localhost:44365/api/cards");
+                return JsonConvert.DeserializeObject<IEnumerable<Card>>(cardsJson);
             }
         }
     }
