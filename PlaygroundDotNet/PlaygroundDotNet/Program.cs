@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Common;
 using PlaygroundDotNet.Managers;
 
 namespace PlaygroundDotNet
@@ -24,6 +25,16 @@ namespace PlaygroundDotNet
             {
                 Console.WriteLine("Failed to initialize game.");
             }
+        }
+
+        static void TestDecorators()
+        {
+            Card soldier = new Card("Soldier", 25, 20);
+            soldier = new AttackDecorator(soldier, "Sword", 15);
+            soldier = new AttackDecorator(soldier, "Amulet", 5);
+            soldier = new DefenseDecorator(soldier, "Helmet", 10);
+            soldier = new DefenseDecorator(soldier, "Heavy Armour", 45);
+            Console.WriteLine($"Soldier final stats: Attack {soldier.Attack} Defense {soldier.Defense}");
         }
 
         static async Task TestWebApiConnection()
